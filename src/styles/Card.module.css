@@ -1,0 +1,66 @@
+.container{
+  width: 400px;
+  max-height: 320px;
+  border: 1px rgb(251,187,4) solid;
+  border-radius: 0.3vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.h1{
+  font-size: 3.5vw;
+  color: white;
+  width: 350px;
+  text-align: center;
+}
+.h1:hover{
+  text-decoration: none;
+  color: rgb(251,187,4);
+}
+.pMin{
+  color: rgb(96,184,212);
+}
+.pMax{
+  color: rgb(251,187,4)
+}
+.img{
+  margin-top: 2vw;
+}
+.info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.h2Max{
+  color: rgb(251,187,4);
+  margin: 2vw 1vw;
+  font-size: 2vw;
+}
+.h2Min{
+  color: rgb(96,184,212);
+  margin: 2vw 1vw;
+  font-size: 2vw;
+}
+
+.btnClose{
+  background-color: rgb(251,187,4);
+  border-radius: 0.3vw;
+  border: none;
+  cursor: pointer;
+  color: white;
+  width: 30px;
+  height: 30px;
+  margin: 0vh 0vw 0vh 300px;
+}
+.btnClose:hover{
+  background-color: red;
+  color: white;
+}
+.contBtn{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 0.5vw;
+}

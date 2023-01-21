@@ -1,0 +1,13 @@
+.container{
+  width: 400px;
+  height: 100vw;
+  margin-top: 15vh;
+}
+.card{
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 60vh 10vh;
+  grid-template-areas: 
+  "Card Card Card Card"
+  "About About About About";
+}
