@@ -1,24 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from '../styles/SearchBar.module.css';
+import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import {getInfoByCity} from '../actions/index';
 
-export default function SearchBar({onSearch}) {
-  // acá va tu código
-  const [city, setCity] = useState('')
-  const setStateCity = (e) => {setCity(e.target.value)};
+export default function SearchBar() {
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
+  const setStateCity = (data) => {
+    dispatch(getInfoByCity(data.city));
+  };
   return (
-    <form onSubmit={(e) => {
-      e.preventDefault();
-      onSearch(city);
-      setCity('');
-    }} className={styles.container}>
+    <form onSubmit={handleSubmit(setStateCity)} className={styles.container}>
       <input
-        type="text"
+        name="city"
         placeholder="Ciudad..."
         className={styles.search}
-        onChange={setStateCity}
-        value={city}
+        {...register("city", {required: true})}
       />
-      <input type="submit" value="Agregar" className={styles.btn}/>
+      <input type="submit" value="Agregar" className={styles.btn} />
     </form>
   )
 };
