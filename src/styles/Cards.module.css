@@ -1,7 +1,7 @@
 .container{
-  width: 400px;
+  width: 325px;
   height: 100vw;
-  margin-top: 15vh;
+  margin-top: 5vh;
 }
 .card{
   display: grid;

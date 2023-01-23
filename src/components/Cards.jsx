@@ -16,15 +16,23 @@ export default function Cards() {
   }
   return (
     <div className={styles.container}>
-      <Nav /*onSearch={onSearch}*/ />
+      <Nav/>
       {city && <div className={styles.card}>
         <Card
           key={city.id}
           name={city.name}
+          temp={city.temp}
           min={city.min}
           max={city.max}
+          weather={city.weather}
+          country={city.country}
+          humidity={city.humidity}
+          description={city.description}
+          lat={city.lat}
+          long={city.long}
+          clouds={city.clouds}
+          wind={city.wind}
           img={img}
-          id={city.id}
           onClose={(e) => onClose(e)}/>
       </div>}
     </div>

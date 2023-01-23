@@ -1,10 +1,17 @@
-export default function infoValidator(info){
+Object.defineProperty(String.prototype, 'capitalize', {
+    value: function () {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    },
+    enumerable: false
+});
+
+export default function infoValidator(info) {
     if (info !== undefined) {
         const city = {
             name: info.name,
             id: info.id,
             country: info.sys.country,
-            description: info.weather[0].description,
+            description: info.weather[0].description.capitalize(),
             weather: info.weather[0].main,
             wind: info.wind.speed,
             temp: info.main.temp,
