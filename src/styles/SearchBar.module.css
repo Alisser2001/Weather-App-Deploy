@@ -12,7 +12,7 @@
 }
 .btn{
     background-color: transparent;
-    border-radius: 0.5vw;
+    border-radius: 5px;
     padding: 0 1vw;
     border: 0.5px rgb(96,184,212) solid;
     color: rgb(251,187,4);
@@ -25,7 +25,7 @@
 .search{
     background-color: white;
     color: black;
-    border-radius: 0.5vw;
+    border-radius: 5px;
     padding: 0 0.5vw;
     border: 1px rgb(96,184,212) solid;
     margin: 1vh 0.5vw;
