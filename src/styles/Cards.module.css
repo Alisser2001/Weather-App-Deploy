@@ -11,3 +11,10 @@
   "Card Card Card Card"
   "About About About About";
 }
+.h1{
+  font-size: 30px;
+  color: white;
+  width: 325px;
+  text-align: center;
+  margin-top: 50px;
+}

@@ -37,12 +37,6 @@
   font-size: 15px;
   padding-right: 13px;
 }
-.h1{
-  font-size: 3vw;
-  color: white;
-  width: 325px;
-  text-align: center;
-}
 .h1:hover{
   text-decoration: none;
   color: rgb(251,187,4);

@@ -35,6 +35,8 @@ export default function Cards() {
           img={img}
           onClose={(e) => onClose(e)}/>
       </div>}
+      {city===false && <div>
+        <h1 className={styles.h1}>The City Has Not Been Found</h1></div>}
     </div>
   )
 };

@@ -21,6 +21,11 @@ export default function rootReducer(state=initialState, action){
                 ...state,
                 city: undefined
             }
+        case "NOT_FOUND_ERROR":
+            return{
+                ...state,
+                city: false
+            }
         default:
             return {
                 ...state
