@@ -1,5 +1,6 @@
 # dotenv environment variables file
 .env
+.env.local
 
 # Dependency directories
 node_modules
