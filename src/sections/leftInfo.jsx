@@ -3,12 +3,12 @@ import useWeatherStore from "../hooks/useStore";
 import { useEffect, useState } from "react";
 import MainInfo from "../components/leftInfo/mainInfo";
 import { getDailyWeather } from "../utils/getDailyWeather";
+import DateInfo from "../components/leftInfo/dateInfo";
+import DailyWeatherInfo from "../components/leftInfo/dailyWeatherInfo";
 
 export default function LeftInfo() {
     const { city, forecast } = useWeatherStore();
-    let actualDate = new Date();
     const [dailyWeather, setDailyWeather] = useState(null);
-
     useEffect(() => {
         if (!dailyWeather && forecast) {
             setDailyWeather(getDailyWeather(forecast));
@@ -17,21 +17,9 @@ export default function LeftInfo() {
 
     return (
         <section className={styles.leftCont}>
-            <div className={styles.titleCont}>
-                <h1 className={styles.city}>{city?.name}, {city?.country}</h1>
-                <h1>{actualDate.getDate()}.{actualDate.getMonth() + 1}.{actualDate.getFullYear()}</h1>
-            </div>
+            <DateInfo city={city} />
             <MainInfo city={city} />
-            <ul className={styles.dailyWeatherCont}>
-                {dailyWeather && dailyWeather.map((item, idx) => (
-                    <li key={idx} className={styles.daily}>
-                        <span className={styles.date}>{item.date}</span>
-                        <img src={`http://openweathermap.org/img/wn/${item.icon}@2x.png`} alt={item.description} width='70' height='70'/>
-                        <span className={styles.temp}>{item.temp.toString().split('.')[0]}°C</span>
-                        <p className={styles.description}>{item.description}</p>
-                    </li>
-                ))}
-            </ul>
+            <DailyWeatherInfo dailyWeather={dailyWeather} />
         </section>
     );
 }

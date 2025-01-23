@@ -1,0 +1,23 @@
+.weatherCont{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    margin-top: 20px;
+    font-size: 50px;
+    font-weight: 600;
+    color: rgba(105,105,105,255);
+}
+
+.weatherImgCont{
+    border-radius: 50%;
+    background-color: rgba(200,200,200,255);
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}

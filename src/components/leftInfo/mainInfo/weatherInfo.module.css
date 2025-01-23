@@ -1,0 +1,23 @@
+.compInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 30%;
+    height: 250px;
+}
+
+.compInfo>p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px;
+    font-size: 25px;
+    color: rgba(105,105,105,255);
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.compInfo>p>svg{
+    margin-right: 15px;
+}
