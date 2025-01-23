@@ -1,19 +1,36 @@
 import { create } from 'zustand';
 import axios from 'axios';
 
-const REACT_APP_API_KEY = import.meta.env.REACT_APP_API_KEY;
+const API_KEY = import.meta.env.VITE_APP_API_KEY;
+
+function formatUnixTimestampToTime(unixTimestamp, timezoneOffset) {
+    if (!unixTimestamp || timezoneOffset === undefined) {
+        return "N/A"; 
+    }
+    const date = new Date((unixTimestamp + timezoneOffset) * 1000);
+    const hours = date.getUTCHours();
+    const minutes = date.getUTCMinutes();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 || 12;
+    return `${formattedHours}:${minutes.toString().padStart(2, "0")} ${ampm}`;
+}
 
 const useWeatherStore = create((set) => ({
     city: undefined,
+    forecast: undefined,
 
     getInfoByCity: async (city) => {
         try {
-            const response = await axios.get(
-                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${REACT_APP_API_KEY}&units=metric`
+            const weatherResponse = await axios.get(
+                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+            );
+            const forecastResponse = await axios.get(
+                `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`
             );
             set((state) => ({
                 ...state,
-                city: infoValidator(response.data),
+                city: infoWeatherValidator(weatherResponse.data),
+                forecast: forecastResponse.data.list
             }));
         } catch (err) {
             set((state) => ({
@@ -24,12 +41,16 @@ const useWeatherStore = create((set) => ({
     },
     getInfoByCityAndCountry: async (payload) => {
         try {
-            const response = await axios.get(
-                `https://api.openweathermap.org/data/2.5/weather?q=${payload.city},${payload.country}&appid=${REACT_APP_API_KEY}&units=metric`
+            const weatherResponse = await axios.get(
+                `https://api.openweathermap.org/data/2.5/weather?q=${payload.city},${payload.country}&appid=${API_KEY}&units=metric`
+            );
+            const forecastResponse = await axios.get(
+                `https://api.openweathermap.org/data/2.5/forecast?q=${payload.city},${payload.country}&appid=${API_KEY}&units=metric`
             );
             set((state) => ({
                 ...state,
-                city: infoValidator(response.data),
+                city: infoWeatherValidator(weatherResponse.data),
+                forecast: forecastResponse.data.list
             }));
         } catch (err) {
             set((state) => ({
@@ -37,22 +58,16 @@ const useWeatherStore = create((set) => ({
                 city: false,
             }));
         }
-    },
-    deleteInfo: () => {
-        set((state) => ({
-            ...state,
-            city: undefined,
-        }));
-    },
+    }
 }));
 
-function infoValidator(info) {
+function infoWeatherValidator(info) {
     if (info !== undefined) {
         const city = {
             name: info.name,
             id: info.id,
             country: info.sys.country,
-            description: info.weather[0].description.capitalize(),
+            description: info.weather[0].description.charAt(0).toUpperCase() + info.weather[0].description.slice(1),
             weather: info.weather[0].main,
             wind: info.wind.speed,
             temp: info.main.temp,
@@ -62,19 +77,15 @@ function infoValidator(info) {
             clouds: info.clouds.all,
             lat: info.coord.lat,
             long: info.coord.lon,
-            img: info.weather[0].icon,
+            img: `http://openweathermap.org/img/wn/${info.weather[0].icon}@2x.png`,
+            feels_like: info.main.feels_like,
+            sunrise: formatUnixTimestampToTime(info.sys.sunrise, info.timezone),
+            sunset: formatUnixTimestampToTime(info.sys.sunset, info.timezone),
         };
         return city;
     } else {
         return {};
     }
 }
-
-Object.defineProperty(String.prototype, 'capitalize', {
-    value: function () {
-        return this.charAt(0).toUpperCase() + this.slice(1);
-    },
-    enumerable: false,
-});
 
 export default useWeatherStore;

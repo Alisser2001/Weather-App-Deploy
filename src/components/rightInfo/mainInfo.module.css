@@ -1,0 +1,63 @@
+.mainInfoCont{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+}
+
+.temp{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    width: 50%;
+    height: 100px;
+}
+
+.temp>span{
+    font-size: 75px;
+    font-weight: 600;
+    color: rgba(105,105,105,255);
+}
+
+.compInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 50%;
+    height: 100px;
+}
+
+.compInfo>p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px 0px;
+    font-size: 15px;
+    color: rgba(105,105,105,255);
+    font-weight: 600;
+    padding-left: 20px;
+}
+
+.compInfo>p>svg{
+    margin-right: 10px;
+}
+
+.feelsCont{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+}
+
+.feels{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(105,105,105,255);
+}

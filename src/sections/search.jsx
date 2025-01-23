@@ -18,12 +18,10 @@ export default function Search() {
         }
     };
     return (
-        <section>
-            <form className={styles.inputs} onSubmit={handleCity}>
-                <Input name='city' placeholder='City...' value={city} onChange={setCity} />
-                <Input name='country' placeholder='Country abbreviation...' value={country} onChange={setCountry} />
-                <input type="submit" value="Search" className={styles.btn} />
-            </form>
-        </section>
+        <form className={styles.searchCont} onSubmit={handleCity}>
+            <Input name='city' placeholder='City...' value={city} onChange={setCity} />
+            <Input name='country' placeholder='Country abbreviation (optional)...' value={country} onChange={setCountry} />
+            <input type="submit" value="Search" className={styles.submitBtn} />
+        </form>
     )
 }
