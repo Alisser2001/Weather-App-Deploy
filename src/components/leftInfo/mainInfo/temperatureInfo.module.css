@@ -1,0 +1,14 @@
+.temp {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    width: 70%;
+    height: 250px;
+}
+
+.temp>span {
+    font-size: 250px;
+    font-weight: 600;
+    color: rgba(105, 105, 105, 255);
+}

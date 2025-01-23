@@ -1,0 +1,23 @@
+.tempMinMax {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tempMin,
+.tempMax {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+    color: rgba(105, 105, 105, 255);
+    margin: 10px 0px;
+}
+
+.tempMinMax>p>svg {
+    margin-right: 10px;
+}

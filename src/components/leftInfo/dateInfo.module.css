@@ -1,0 +1,9 @@
+.dateInfoCont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 50px;
+    color: rgba(50, 50, 50, 255);
+}
