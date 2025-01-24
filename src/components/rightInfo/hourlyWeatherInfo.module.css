@@ -5,6 +5,7 @@
     height: auto;
     justify-content: center;
     align-items: center;
+    margin-top: 15px;
 }
 
 .hourlyWeatherDesc {
@@ -17,16 +18,15 @@
 .hourlyWeatherCards {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     width: 100%;
     max-width: 100%;
     height: auto;
     flex-wrap: wrap;
-    margin-top: 10px;
     padding: 0;
     margin: 0;
-    gap: 16px;
+    gap: 20px;
 }
 
 .hourlyWeatherCard {
@@ -59,7 +59,7 @@
 
 .temp {
     font-size: 20px;
-    color: rgba(105,105,105,255);
+    color: rgba(105, 105, 105, 255);
 }
 
 .description {
@@ -70,5 +70,48 @@
     display: inline-block;
     padding-top: 5px;
     font-size: 10px;
-    color: rgba(110,110,110,255);
+    color: rgba(110, 110, 110, 255);
+}
+
+.dailyWeatherDesc,
+.dailyWeatherCards {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .dailyWeatherDesc {
+        display: flex;
+        color: rgba(105, 105, 105, 255);
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .dailyWeatherCards {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        padding: 0;
+        margin: 0;
+        gap: 20px;
+    }
+
+    .dailyWeatherCard {
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+        height: auto;
+        padding: 10px 0px 0px 0px;
+        justify-content: center;
+        align-items: center;
+        color: rgba(50, 50, 50, 255);
+        font-weight: 600;
+        border-radius: 8px;
+        background-color: rgba(200, 200, 200, 255);
+    }
 }
