@@ -7,7 +7,7 @@ export default function MainInfo({ city }) {
     return (
         <div className={styles.mainInfoCont}>
             <TemperatureInfo temp={city.temp} />
-            <WeatherInfo wind={city.wind} humidity={city.humidity} />
+            <WeatherInfo wind={city.wind} humidity={city.humidity} clouds={city.clouds}/>
             <WeatherStatus feels_like={city.feels_like}/>
         </div>
     )

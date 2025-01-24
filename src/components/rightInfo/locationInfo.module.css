@@ -16,6 +16,7 @@
     font-size: 15px;
     color: rgba(105, 105, 105, 255);
     margin: 10px 0px;
+    width: 50%;
 }
 
 .locationCont>p>svg {

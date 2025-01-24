@@ -27,6 +27,12 @@
   margin: 50px 0px;
 }
 
+@media (max-width: 768px) {
+  #container{
+    width: 90%;
+  }
+}
+
 #infoCont{
   display: flex;
   flex-direction: row;

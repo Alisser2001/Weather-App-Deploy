@@ -10,3 +10,8 @@
     flex-wrap: wrap;
 }
 
+@media (max-width: 768px){
+    .leftCont {
+        display: none;
+    }
+}

@@ -9,3 +9,11 @@
     width: 45%;
     height: auto;
 }
+
+@media (max-width: 768px){
+    .search{
+        width: 95%;
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+}

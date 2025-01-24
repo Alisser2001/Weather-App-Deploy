@@ -12,3 +12,9 @@
     font-weight: 600;
     color: rgba(105,105,105,255);
 }
+
+@media (max-width: 768px){
+    .temp>span{
+        font-size: 100px;
+    }
+}
